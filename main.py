@@ -1,5 +1,6 @@
 from games.roulette import speel_roulette
 from games.fruitmachine import play_fruitmachine
+from games.blackjack import play_blackjack
 ENTRY_TICKET = 10.00
 MANDATORY_DRINK = 3.00
 GAMBLE_TAX = 15.00
@@ -110,12 +111,15 @@ def main():
                 Je hebt de keuze uit de volgende spellen:
                 Optie 1: Fruitmachine
                 Optie 2: Roulette
+                Optie 3: Blackjack
                 Optie 0: Terug
                 """))
                 if spelkeuze == 1:
                     saldo = play_fruitmachine(saldo)
                 elif spelkeuze == 2:
                     saldo = speel_roulette(saldo)
+                elif spelkeuze == 3:
+                    saldo = play_blackjack(saldo)
             case 2:
                 toon_saldo(saldo)
             case 3:
