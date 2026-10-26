@@ -1,4 +1,4 @@
-from games.roulette import uitvraag_inzet
+from helpers import uitvraag_inzet
 
 def determine_rolls(round_number):
     resultaat = round_number % 5

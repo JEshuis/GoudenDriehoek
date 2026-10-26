@@ -1,8 +1,9 @@
+from helpers import uitvraag_inzet
 ROUND_NUMBER = 1
 SPIN = (ROUND_NUMBER * 7) % 37
 
 def speel_roulette(saldo):
-    gekozen_optie, color_spin, odd_even = show_roulette_options()
+    gekozen_optie, color_spin, odd_even = show_roulette_options(saldo)
     gekozen_inzet = uitvraag_inzet(saldo)
     saldo -= gekozen_inzet
     saldo = winst_berekening(
@@ -43,17 +44,6 @@ def show_roulette_options(saldo):
         color_spin = "zwart"
         odd_even = "oneven"
     return gekozen_optie, color_spin, odd_even
-
-def uitvraag_inzet(saldo):
-    while True:
-            gekozen_inzet = int(input("Hoeveel wilt u inzetten? €"))
-
-            if gekozen_inzet <= 0:
-                print("Dat is helaas niet mogelijk, je moet minimaal €1 inzetten.")
-            elif gekozen_inzet > saldo:
-                print(f"Je mag helaas niet meer uitgeven dan je huidige saldo van €{saldo:.2f}.")
-            else:
-                return gekozen_inzet
 
 def winst_berekening(gekozen_optie, color_spin, saldo, gekozen_inzet):
     if gekozen_optie == 1 and color_spin == "rood":
